@@ -1,0 +1,7 @@
+This is a basic tornado powered music tag and music file webserver.
+Before the server will run you must create a music_settings.py file, like so:
+
+	echo "MUSIC_PATH='/MUSIC/'" > music_settings.py
+
+To run the server simply issue the following command:
+	python twisted_tunes_server.py

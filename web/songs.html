@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<!-- still no unicorns -->
+	<head>
+		<title>Tornado Music Server</title>
+		<meta charset="UTF-8">
+		<link href="/static/css/display.css" rel="stylesheet" type="text/css"/>
+		<link href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+	</head>
+<!-- topbar -->
+<div class="topbar-wrapper" style="z-index: 5;">
+	<div class="topbar" data-dropdown="dropdown" >
+		<div class="topbar-inner">
+		<div class="container">
+			<h3><a href="#">Twisted Tunez</a></h3>
+			<ul class="nav">
+				<li id="topbar_menu_home_link"><a href="#">Home</a></li>
+			</ul>
+			<ul class="nav secondary-nav">
+				<h3><a><small id="music_track_cound"> </small></a> </h3>
+			</ul>
+		</div>
+		</div><!-- /topbar-inner -->
+	</div><!-- /topbar -->
+</div><!-- /topbar-wrapper -->
+<!-- end of topbar -->
+
+	<body class="body">
+		<div class="content">
+			<div class="heading">
+				<div class="alert-message info">
+					<h1>Music!</h1>
+				</div>
+			</div>
+			<div class="music_table">
+				<table class="zebra-striped">
+					{% for song in songs %}
+						<tr>
+							<td><a href="/api/files/songs/{{song['_id']}}/"> Listen </a> </td>
+							{% for key, value in song.items() %}
+								<td> {{key}} : {{value}} </td>
+							{% end %}
+						</tr>
+					{% end %}
+				</table>
+			</div>
+		</div>
+	</body>
+
+	<div div="hidden_form_to_setup_csrf_token" style="display: none">
+		<form action="#">
+			{% raw xsrf_form_html() %}
+		</form>
+</html>
+

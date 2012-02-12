@@ -1,0 +1,20 @@
+.content
+{
+	margin-left: 30%;
+	margin-right : 30%;
+}
+.heading
+{
+	text-align : center;
+}
+
+.game_defs
+{
+	display: none
+}
+
+.body
+{
+	padding-top: 40px;
+}
+
